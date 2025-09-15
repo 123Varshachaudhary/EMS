@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, {  useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,7 +30,7 @@ const Login = () => {
       }
      }
     } catch (error) {
-      if(error.response && !error.response.data.sucess){
+      if(error.response && !error.response.data.success){
         setError(error.response.data.error)
       } else {
         setError("Server Error")

@@ -1,8 +1,14 @@
 import React from 'react'
+import { useAuth } from '../context/authContext'
+import AdminSidebar from '../components/dashboard/AdminSidebar'
 
 const AdminDashboard = () => {
+  const {user} = useAuth()
+  
   return (
-    <div>AdminDashboard</div>
+    <div>
+      <AdminSidebar/> 
+    </div>
   )
 }
 
