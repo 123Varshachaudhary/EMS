@@ -4,6 +4,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import EmployeeDashboard from './pages/EmployeeDashboard';
 import RoleBaseRoutes from './utils/RoleBaseRoutes';
 import PrivateRoutes from './utils/PrivateRoutes';
+import AdminSummary from './components/dashboard/AdminSummary';
+import DepartmentList from './components/department/DepartmentList';
  function App() {
   return (
     <BrowserRouter>
@@ -11,14 +13,17 @@ import PrivateRoutes from './utils/PrivateRoutes';
       <Route path="/" element={<Navigate to="/admin-dashboard" />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/admin-dashboard" element={
-        <PrivateRoutes>
-          <RoleBaseRoutes requiredRole={["admin"]}>
+       // <PrivateRoutes>
+         // <RoleBaseRoutes requiredRole={["admin"]}>
             <AdminDashboard />
-          </RoleBaseRoutes>
+         // </RoleBaseRoutes>
           
-        </PrivateRoutes>
+       // </PrivateRoutes>
         
-        }></Route>
+        }>
+          <Route index element={<AdminSummary />}></Route>
+          <Route path='/admin-dashboard/departments' element={<DepartmentList />}></Route>
+        </Route>
       <Route path="/employee-dashboard" element={<EmployeeDashboard />}></Route>
     </Routes>
     
