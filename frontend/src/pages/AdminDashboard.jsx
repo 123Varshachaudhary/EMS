@@ -8,6 +8,7 @@ import { Outlet } from 'react-router-dom'
 const AdminDashboard = () => {
   const {user} = useAuth()
   
+  
   return (
     <div className='flex'>
       <AdminSidebar/> 
